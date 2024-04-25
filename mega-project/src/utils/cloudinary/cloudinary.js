@@ -15,6 +15,7 @@ const fileUpload = async (fpath) => {
             resource_type : "auto"
         });
         console.log("FILE UPLOAD TO CLOUDINARY SUCCESSFULLY",resposne);
+        fs.unlinkSync(fpath)
         return resposne;
     }catch (error){
         fs.unlinkSync(fpath) // REMOVE THE LOCAL SAVED TEMP FILE ON THE SERVER;
@@ -22,4 +23,5 @@ const fileUpload = async (fpath) => {
     }
 };
 
-export default fileUpload;
+
+export default fileUpload ;
